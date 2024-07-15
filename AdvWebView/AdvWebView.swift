@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import JSBridge
+import PromiseKit
+import Signals
+import WebKit
+
+#if canImport(Cocoa)
+import Cocoa
+#endif
+
+#if canImport(UIKit)
+import UIKit
+#endif
+
+

@@ -12,6 +12,9 @@
 		B14B6F6E2C456A3D0085AD18 /* AdvWebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B6F6D2C456A3D0085AD18 /* AdvWebViewTests.swift */; };
 		B14B6F6F2C456A3D0085AD18 /* AdvWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = B14B6F612C456A3D0085AD18 /* AdvWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B14B6F792C456A470085AD18 /* AdvWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B6F782C456A470085AD18 /* AdvWebView.swift */; };
+		B14B6F7C2C456AC40085AD18 /* Signals in Frameworks */ = {isa = PBXBuildFile; productRef = B14B6F7B2C456AC40085AD18 /* Signals */; };
+		B14B6F7F2C456AEE0085AD18 /* JSBridge in Frameworks */ = {isa = PBXBuildFile; productRef = B14B6F7E2C456AEE0085AD18 /* JSBridge */; };
+		B14B6F822C456B000085AD18 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = B14B6F812C456B000085AD18 /* PromiseKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14B6F7F2C456AEE0085AD18 /* JSBridge in Frameworks */,
+				B14B6F822C456B000085AD18 /* PromiseKit in Frameworks */,
+				B14B6F7C2C456AC40085AD18 /* Signals in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +122,11 @@
 			dependencies = (
 			);
 			name = AdvWebView;
+			packageProductDependencies = (
+				B14B6F7B2C456AC40085AD18 /* Signals */,
+				B14B6F7E2C456AEE0085AD18 /* JSBridge */,
+				B14B6F812C456B000085AD18 /* PromiseKit */,
+			);
 			productName = AdvWebView;
 			productReference = B14B6F5E2C456A3D0085AD18 /* AdvWebView.framework */;
 			productType = "com.apple.product-type.framework";
@@ -165,6 +176,11 @@
 				Base,
 			);
 			mainGroup = B14B6F542C456A3D0085AD18;
+			packageReferences = (
+				B14B6F7A2C456AC40085AD18 /* XCRemoteSwiftPackageReference "Signals" */,
+				B14B6F7D2C456AEE0085AD18 /* XCRemoteSwiftPackageReference "JSBridge" */,
+				B14B6F802C456B000085AD18 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = B14B6F5F2C456A3D0085AD18 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -490,6 +506,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B14B6F7A2C456AC40085AD18 /* XCRemoteSwiftPackageReference "Signals" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/artman/Signals";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+		B14B6F7D2C456AEE0085AD18 /* XCRemoteSwiftPackageReference "JSBridge" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LinusU/JSBridge";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B14B6F802C456B000085AD18 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B14B6F7B2C456AC40085AD18 /* Signals */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B6F7A2C456AC40085AD18 /* XCRemoteSwiftPackageReference "Signals" */;
+			productName = Signals;
+		};
+		B14B6F7E2C456AEE0085AD18 /* JSBridge */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B6F7D2C456AEE0085AD18 /* XCRemoteSwiftPackageReference "JSBridge" */;
+			productName = JSBridge;
+		};
+		B14B6F812C456B000085AD18 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B6F802C456B000085AD18 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B14B6F552C456A3D0085AD18 /* Project object */;
 }
