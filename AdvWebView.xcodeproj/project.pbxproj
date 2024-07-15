@@ -11,6 +11,7 @@
 		B14B6F692C456A3D0085AD18 /* AdvWebView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14B6F5E2C456A3D0085AD18 /* AdvWebView.framework */; };
 		B14B6F6E2C456A3D0085AD18 /* AdvWebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B6F6D2C456A3D0085AD18 /* AdvWebViewTests.swift */; };
 		B14B6F6F2C456A3D0085AD18 /* AdvWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = B14B6F612C456A3D0085AD18 /* AdvWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B14B6F792C456A470085AD18 /* AdvWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B6F782C456A470085AD18 /* AdvWebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		B14B6F622C456A3D0085AD18 /* AdvWebView.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AdvWebView.docc; sourceTree = "<group>"; };
 		B14B6F682C456A3D0085AD18 /* AdvWebViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvWebViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14B6F6D2C456A3D0085AD18 /* AdvWebViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvWebViewTests.swift; sourceTree = "<group>"; };
+		B14B6F782C456A470085AD18 /* AdvWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvWebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				B14B6F612C456A3D0085AD18 /* AdvWebView.h */,
 				B14B6F622C456A3D0085AD18 /* AdvWebView.docc */,
+				B14B6F782C456A470085AD18 /* AdvWebView.swift */,
 			);
 			path = AdvWebView;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B14B6F632C456A3D0085AD18 /* AdvWebView.docc in Sources */,
+				B14B6F792C456A470085AD18 /* AdvWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +420,7 @@
 		B14B6F762C456A3D0085AD18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 32QP46JEL2;
@@ -436,6 +441,7 @@
 		B14B6F772C456A3D0085AD18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 32QP46JEL2;
