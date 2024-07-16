@@ -222,8 +222,22 @@ open class AdvWebView: NSObject, WKNavigationDelegate {
         return self.bridge.call(function: "SwiftAdvWebViewSimulateType", withArgs: (selector, text)) as Promise<Void>
     }
     
+    public func reload() -> Promise<Void> {
+        return when(fulfilled: waitForNavigation(), bridge.call(function: "SwiftAdvWebViewReload") as Promise<Void>)
+
+    }
+        
+    public func waitForFunction(_ fn: String) -> Promise<Void> {
+        return firstly {
+            self.bridge.call(function: "() => SwiftAdvWebViewWaitForFunction(() => { return \(fn)\n })") as Promise<Void>
+        }.recover { (err) -> Promise<Void> in
+            if err is AbortedError { return self.waitForFunction(fn) } else { throw err }
+        }
+    }
+    
     public func waitForNavigation() -> Promise<Void> {
         return Promise { seal in self.onNavigationFinished.subscribeOnce(with: self) { _ in seal.fulfill(()) } }
 
     }
+    
 }
