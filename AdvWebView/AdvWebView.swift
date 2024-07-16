@@ -195,4 +195,35 @@ open class AdvWebView: NSObject, WKNavigationDelegate {
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.onNavigationFinished.fire(navigation)
     }
+    
+    public func click(_ selector: String) -> Promise<Void> {
+        return self.bridge.call(function: "SwiftAdvWebViewSimulateClick", withArg: selector) as Promise<Void>
+    }
+    
+    public func evaluate(_ script: String) -> Promise<Void> {
+        return bridge.call(function: "() => {return \(script)\n}")
+    }
+    
+    public func evaluate<Result: Decodable>(_ script: String) -> Promise<Result> {
+        return bridge.call(function: "() => { return \(script)\n}")
+    }
+    
+    public func goto(_ url: URL) -> Promise<Void> {
+        let promise = self.waitForNavigation()
+        webView.load(URLRequest(url: url))
+        return promise
+    }
+    
+    public func setContent(_ html: String) -> Promise<Void> {
+        return self.bridge.call(function: "SwiftAdvWebViewSetContent", withArg: html) as Promise<Void>
+    }
+    
+    public func type(_ selector: String, _ text: String) -> Promise<Void> {
+        return self.bridge.call(function: "SwiftAdvWebViewSimulateType", withArgs: (selector, text)) as Promise<Void>
+    }
+    
+    public func waitForNavigation() -> Promise<Void> {
+        return Promise { seal in self.onNavigationFinished.subscribeOnce(with: self) { _ in seal.fulfill(()) } }
+
+    }
 }
