@@ -253,4 +253,9 @@ open class AdvWebView: NSObject, WKNavigationDelegate {
     }
     #endif
     
+    #if canImport(UIKit)
+    public func screenshot() -> Promise<UIImage> {
+        return Promise { seal in self.webView.takeSnapshot(with: nil, completionHandler: seal.resolve) }
+    }
+    #endif
 }
