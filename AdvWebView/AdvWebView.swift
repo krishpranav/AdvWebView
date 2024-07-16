@@ -237,7 +237,20 @@ open class AdvWebView: NSObject, WKNavigationDelegate {
     
     public func waitForNavigation() -> Promise<Void> {
         return Promise { seal in self.onNavigationFinished.subscribeOnce(with: self) { _ in seal.fulfill(()) } }
-
     }
+    
+    public func waitForSelector(_ selector: String) -> Promise<Void> {
+        return firstly {
+            self.bridge.call(function: "SwiftAdvWebViewWaitForSelector", withArg: selector) as Promise<Void>
+        }.recover { (err) -> Promise<Void> in
+            if err is AbortedError { return self.waitForSelector(selector) } else { throw err }
+        }
+    }
+    
+    #if canImport(Cocoa)
+    public func screenshot() -> Promise<NSImage> {
+        return Promise { seal in self.webView.takeSnapshot(with: nil, completionHandler: seal.resolve) }
+    }
+    #endif
     
 }
